@@ -17,25 +17,26 @@ COPY etc/entry.sh "${HOMEDIR}/entry.sh"
 COPY etc/server.cfg "/etc/server.cfg"
 COPY etc/pre.sh "/etc/pre.sh"
 COPY etc/post.sh "/etc/post.sh"
+COPY addons "${HOMEDIR}"
 
 RUN set -x \
 	# Install, update & upgrade packages
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
-		wget \
-		ca-certificates \
-		lib32z1 \
-                simpleproxy \
-                libicu-dev \
-                unzip \
-		jq \
+	wget \
+	ca-certificates \
+	lib32z1 \
+	simpleproxy \
+	libicu-dev \
+	unzip \
+	jq \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
-        && apt-get clean \
-        && find /var/lib/apt/lists/ -type f -delete
+	&& apt-get clean \
+	&& find /var/lib/apt/lists/ -type f -delete
 
 # BASE
 
@@ -74,8 +75,8 @@ FROM build_stage AS bullseye-base
 # Set permissions on STEAMAPPDIR
 #   Permissions may need to be reset if persistent volume mounted
 RUN set -x \
-        && chown -R "${USER}:${USER}" "${STEAMAPPDIR}" \
-        && chmod 0777 "${STEAMAPPDIR}"
+	&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}" \
+	&& chmod 0777 "${STEAMAPPDIR}"
 
 # Switch to user
 USER ${USER}
