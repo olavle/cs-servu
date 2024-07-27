@@ -3,7 +3,8 @@
 # Create App Dir
 mkdir -p "${STEAMAPPDIR}" || true
 echo "${STEAMAPPDIR}" >> checkme.txt
-touch "${STEAMAPPDIR}"/hello.txt
+touch "${STEAMAPPDIR}"/game/csgo/hello.txt
+cp -r addons "${STEAMAPPDIR}"/game/csgo/
 
 # Download Updates
 
@@ -95,7 +96,6 @@ if [[ ! -z $SRCDS_TOKEN ]]; then
     SV_SETSTEAMACCOUNT_ARGS="+sv_setsteamaccount ${SRCDS_TOKEN}"
 fi
 
-cp -r addons "${STEAMAPPDIR}"/game/csgo/
 
 # Start Server
 
