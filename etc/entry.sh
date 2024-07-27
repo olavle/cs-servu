@@ -100,6 +100,8 @@ if [[ ! -z $CS2_RCON_PORT ]]; then
     simpleproxy -L "${CS2_RCON_PORT}" -R 127.0.0.1:"${CS2_PORT}" &
 fi
 
+cp /addons "${STEAMAPPDIR}/game"
+
 echo "Starting CS2 Dedicated Server"
 eval "./cs2" -dedicated \
         "${CS2_IP_ARGS}" -port "${CS2_PORT}" \
