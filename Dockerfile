@@ -19,6 +19,8 @@ COPY etc/pre.sh "/etc/pre.sh"
 COPY etc/post.sh "/etc/post.sh"
 COPY addons "${HOMEDIR}/addons"
 
+RUN chmod -R 755 ${HOMEDIR}/addons
+
 RUN set -x \
 	# Install, update & upgrade packages
 	&& apt-get update \
