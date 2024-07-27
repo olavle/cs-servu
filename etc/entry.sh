@@ -2,9 +2,6 @@
 
 # Create App Dir
 mkdir -p "${STEAMAPPDIR}" || true
-echo "${STEAMAPPDIR}" >> checkme.txt
-touch "${STEAMAPPDIR}"/game/csgo/hello.txt
-cp -r addons "${STEAMAPPDIR}"/game/csgo/
 
 # Download Updates
 
@@ -69,6 +66,8 @@ fi
 if [[ ! -z $CS2_BOT_QUOTA_MODE ]] ; then
     sed -i "s/bot_quota_mode.*/bot_quota_mode ${CS2_BOT_QUOTA_MODE}/" "${STEAMAPPDIR}"/game/csgo/cfg/*
 fi
+
+cp -r addons "${STEAMAPPDIR}"/game/csgo/
 
 # Switch to server directory
 cd "${STEAMAPPDIR}/game/bin/linuxsteamrt64"
