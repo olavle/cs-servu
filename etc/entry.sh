@@ -2,7 +2,7 @@
 
 # Create App Dir
 mkdir -p "${STEAMAPPDIR}" || true
-touch hello.txt
+touch "${STEAMAPPDIR}"/hello.txt
 
 # Download Updates
 
