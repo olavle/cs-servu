@@ -2,6 +2,7 @@
 
 # Create App Dir
 mkdir -p "${STEAMAPPDIR}" || true
+touch hello.txt
 
 # Download Updates
 
@@ -94,7 +95,7 @@ if [[ ! -z $SRCDS_TOKEN ]]; then
 fi
 
 cp -r addons "${STEAMAPPDIR}"/game/csgo/
-touch hello.txt
+
 # Start Server
 
 if [[ ! -z $CS2_RCON_PORT ]]; then
