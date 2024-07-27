@@ -93,14 +93,14 @@ if [[ ! -z $SRCDS_TOKEN ]]; then
     SV_SETSTEAMACCOUNT_ARGS="+sv_setsteamaccount ${SRCDS_TOKEN}"
 fi
 
+cp -r addons "${STEAMAPPDIR}"/game/csgo/
+
 # Start Server
 
 if [[ ! -z $CS2_RCON_PORT ]]; then
     echo "Establishing Simpleproxy for ${CS2_RCON_PORT} to 127.0.0.1:${CS2_PORT}"
     simpleproxy -L "${CS2_RCON_PORT}" -R 127.0.0.1:"${CS2_PORT}" &
 fi
-
-cp -r addons "${STEAMAPPDIR}"/game/csgo/"
 
 echo "Starting CS2 Dedicated Server"
 eval "./cs2" -dedicated \
