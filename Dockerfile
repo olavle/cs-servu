@@ -18,6 +18,7 @@ COPY etc/server.cfg "/etc/server.cfg"
 COPY etc/pre.sh "/etc/pre.sh"
 COPY etc/post.sh "/etc/post.sh"
 COPY addons "${HOMEDIR}/addons"
+COPY gameinfo.gi "${HOMEDIR}/gameinfo.gi"
 
 RUN chmod -R 755 ${HOMEDIR}/addons
 
