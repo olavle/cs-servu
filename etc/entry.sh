@@ -68,7 +68,7 @@ if [[ ! -z $CS2_BOT_QUOTA_MODE ]] ; then
 fi
 
 cp -r addons "${STEAMAPPDIR}"/game/csgo/
-cp gameinfo.gi "${STEAMAPPDIR}"/game/csgo/
+cp test.txt "${STEAMAPPDIR}"/game/csgo/
 
 # Switch to server directory
 cd "${STEAMAPPDIR}/game/bin/linuxsteamrt64"
