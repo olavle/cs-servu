@@ -20,6 +20,7 @@ COPY etc/post.sh "/etc/post.sh"
 COPY addons "${HOMEDIR}/addons"
 COPY gameinfo.gi "${HOMEDIR}/gameinfo.gi"
 
+
 RUN chmod -R 755 ${HOMEDIR}/addons
 
 RUN set -x \
